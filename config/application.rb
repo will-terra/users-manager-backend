@@ -58,7 +58,7 @@ module Backend
     config.active_storage.content_types_to_serve_as_binary -= [ "image/svg+xml" ]
 
     # Action Cable configuration
-    # config.action_cable.allowed_request_origins = [ "https://users-manager-frontend-rosy.vercel.app" ]
+    config.action_cable.allowed_request_origins = [ "https://users-manager-frontend-rosy.vercel.app" ]
 
     # Logging configuration
     config.log_level = :info
