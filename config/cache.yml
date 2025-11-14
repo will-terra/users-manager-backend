@@ -1,0 +1,15 @@
+default: &default
+  store_options:
+    # Cap the size of the cache at 1GB
+    max_size: <%= 1.gigabyte %>
+    # Compress values to reduce memory usage
+    compression: true
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

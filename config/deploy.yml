@@ -1,0 +1,27 @@
+# config/deploy.yml
+service: backend
+image: your-username/backend
+
+# Configure environment
+env:
+  clear:
+    RAILS_MASTER_KEY: <%= ENV['RAILS_MASTER_KEY'] %>
+  secret:
+    - DATABASE_URL
+
+# Configure servers
+servers:
+  web:
+    - 192.168.0.1
+  # job:
+  #   - 192.168.0.2
+
+# Configure registry
+registry:
+  username: your-username
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Configure volumes
+volumes:
+  - app_storage:/app/storage

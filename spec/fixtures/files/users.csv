@@ -1,0 +1,5 @@
+full_name,email,role,avatar_url
+John Doe,john@example.com,user,https://example.com/avatar1.jpg
+Jane Smith,jane@example.com,admin,https://example.com/avatar2.jpg
+Bob Johnson,bob@example.com,user,
+Alice Brown,alice@example.com,user,https://example.com/avatar3.jpg
