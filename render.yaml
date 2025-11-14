@@ -3,7 +3,7 @@ services:
     name: users-manager-backend
     runtime: ruby
     buildCommand: bundle install
-    startCommand: bundle exec puma -C config/puma.rb
+    startCommand: bundle exec rails db:migrate && bundle exec puma -C config/puma.rb
     envVars:
       - key: RAILS_ENV
         value: production
@@ -12,10 +12,10 @@ services:
       - key: DATABASE_URL
         sync: false  # Set this in Render dashboard to your database URL
   - type: worker
-    name: users-manager-worker
+    name: users-manager-backend-worker
     runtime: ruby
     buildCommand: bundle install
-    startCommand: bundle exec rake solid_queue:start
+    startCommand: bundle exec rails db:migrate && bundle exec rake solid_queue:start
     envVars:
       - key: RAILS_ENV
         value: production
