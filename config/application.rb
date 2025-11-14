@@ -53,13 +53,6 @@ module Backend
     # Configure Solid Queue as Active Job backend
     config.active_job.queue_adapter = :solid_queue
 
-    # Configure database connections for Solid components
-    config.active_record.connects_to = {
-      cache: { writing: :primary },
-      queue: { writing: :primary },
-      cable: { writing: :primary }
-    }
-
     # Active Storage configuration
     config.active_storage.variant_processor = :vips
     config.active_storage.content_types_to_serve_as_binary -= [ "image/svg+xml" ]
