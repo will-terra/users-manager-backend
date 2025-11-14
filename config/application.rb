@@ -53,12 +53,12 @@ module Backend
     # Configure Solid Queue as Active Job backend
     config.active_job.queue_adapter = :solid_queue
 
-    # Load Solid Queue
-    config.solid_queue.connects_to = { database: { writing: :primary } }
-
-    # Configure Solid Cache and Cable to use primary database
-    config.solid_cache.connects_to = { database: { writing: :primary } }
-    config.solid_cable.connects_to = { database: { writing: :primary } }
+    # Configure database connections for Solid components
+    config.active_record.connects_to = {
+      cache: { writing: :primary },
+      queue: { writing: :primary },
+      cable: { writing: :primary }
+    }
 
     # Active Storage configuration
     config.active_storage.variant_processor = :vips
